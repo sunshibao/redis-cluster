@@ -1,0 +1,56 @@
+version: '3.1'
+services:
+  redis-master1:
+    image: redis:7
+    container_name: redis-master1
+    restart: always
+    network_mode: "host"
+    volumes:
+      - ./redis-master1/data:/data
+      - ./redis-master1/redis.conf:/usr/local/etc/redis/redis.conf
+    command: ["redis-server","/usr/local/etc/redis/redis.conf"]
+  redis-slave1:
+    image: redis:7
+    container_name: redis-slave1
+    restart: always
+    network_mode: "host"
+    volumes:
+      - ./redis-slave1/data:/data
+      - ./redis-slave1/redis.conf:/usr/local/etc/redis/redis.conf
+    command: [ "redis-server","/usr/local/etc/redis/redis.conf" ]
+  redis-master2:
+    image: redis:7
+    container_name: redis-master2
+    restart: always
+    network_mode: "host"
+    volumes:
+      - ./redis-master2/data:/data
+      - ./redis-master2/redis.conf:/usr/local/etc/redis/redis.conf
+    command: [ "redis-server","/usr/local/etc/redis/redis.conf" ]
+  redis-slave2:
+    image: redis:7
+    container_name: redis-slave2
+    restart: always
+    network_mode: "host"
+    volumes:
+      - ./redis-slave2/data:/data
+      - ./redis-slave2/redis.conf:/usr/local/etc/redis/redis.conf
+    command: [ "redis-server","/usr/local/etc/redis/redis.conf" ]
+  redis-master3:
+    image: redis:7
+    container_name: redis-master3
+    restart: always
+    network_mode: "host"
+    volumes:
+      - ./redis-master3/data:/data
+      - ./redis-master3/redis.conf:/usr/local/etc/redis/redis.conf
+    command: [ "redis-server","/usr/local/etc/redis/redis.conf" ]
+  redis-slave3:
+    image: redis:7
+    container_name: redis-slave3
+    restart: always
+    network_mode: "host"
+    volumes:
+      - ./redis-slave3/data:/data
+      - ./redis-slave3/redis.conf:/usr/local/etc/redis/redis.conf
+    command: [ "redis-server","/usr/local/etc/redis/redis.conf" ]
